@@ -1,4 +1,3 @@
-# Flexbox
-- Komponenten werden strukturiert 
-<img src="./screenshots/Screenshot_1632854041.png" height="300" margin="20" alt="screenshot">
-<img src="./screenshots/Screenshot_1632854049.png" height="300" margin="20" alt="screenshot">
+# Touchable Komponenten
+- Die Todo Komponente wird klickbar
+<img src="./screenshots/Screenshot_1632854528.png" height="300" margin="20" alt="screenshot">

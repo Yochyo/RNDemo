@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 export interface Todo {
   title: string;
@@ -12,7 +12,7 @@ export const TodoItem = (
   }>,
 ) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image
         style={styles.icon}
         source={{
@@ -23,7 +23,7 @@ export const TodoItem = (
         <Text style={styles.title}>{props.todoItem.title}</Text>
         <Text>{props.todoItem.description}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
