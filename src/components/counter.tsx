@@ -16,6 +16,9 @@ export const Counter = (props: PropsWithChildren<{}>) => {
 const styles = StyleSheet.create({
   container: {
     padding: 8,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     marginBottom: 16,

@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 export interface Todo {
   title: string;
@@ -13,8 +13,16 @@ export const TodoItem = (
 ) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{props.todoItem.title}</Text>
-      <Text>{props.todoItem.description}</Text>
+      <Image
+        style={styles.icon}
+        source={{
+          uri: 'https://raw.githubusercontent.com/Yochyo/RNDemo/main/res/green_circle.png',
+        }}
+      />
+      <View>
+        <Text style={styles.title}>{props.todoItem.title}</Text>
+        <Text>{props.todoItem.description}</Text>
+      </View>
     </View>
   );
 };
@@ -22,6 +30,13 @@ export const TodoItem = (
 const styles = StyleSheet.create({
   container: {
     padding: 8,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    marginRight: 8,
   },
   title: {
     marginBottom: 4,
