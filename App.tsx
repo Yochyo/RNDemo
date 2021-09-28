@@ -4,10 +4,11 @@ import {Todo} from './src/components/todo-item';
 import {Counter} from './src/components/counter';
 import {TodoList} from './src/components/todo-list';
 import {MyAsyncStorage} from './src/async-storage';
-import {FAB} from 'react-native-paper';
+import {Button, Dialog, FAB} from 'react-native-paper';
 
 const App = () => {
   let [items, setItems] = useState<Todo[]>([]);
+  let [deleteItem, setDeleteItem] = useState<Todo | undefined>(undefined);
 
   useEffect(() => {
     MyAsyncStorage.getObject<Todo[]>('todos', [
@@ -27,8 +28,27 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <TodoList items={items} />
+      <TodoList items={items} onClickItem={setDeleteItem} />
       <Counter />
+      <Dialog
+        onDismiss={() => setDeleteItem(undefined)}
+        visible={deleteItem !== undefined}>
+        <Dialog.Title>Delete item {deleteItem?.title}?</Dialog.Title>
+        <Dialog.Actions>
+          <Button onPress={() => setDeleteItem(undefined)}>No</Button>
+          <Button
+            onPress={() => {
+              let item = deleteItem;
+              if (item !== undefined) {
+                setItems(copyWithout(items, item));
+              }
+
+              setDeleteItem(undefined);
+            }}>
+            Yes
+          </Button>
+        </Dialog.Actions>
+      </Dialog>
       <FAB
         style={styles.fab}
         icon="plus"
@@ -49,5 +69,11 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
 });
+
+function copyWithout<T>(array: T[], e: T) {
+  let copy = [...array];
+  copy.splice(array.indexOf(e), 1);
+  return copy;
+}
 
 export default App;

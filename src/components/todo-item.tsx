@@ -9,10 +9,13 @@ export interface Todo {
 export const TodoItem = (
   props: PropsWithChildren<{
     todoItem: Todo;
+    onClick: (item: Todo) => void;
   }>,
 ) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => props.onClick(props.todoItem)}>
       <Image
         style={styles.icon}
         source={{
