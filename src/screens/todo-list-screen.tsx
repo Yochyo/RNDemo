@@ -1,6 +1,5 @@
 import {StyleSheet, View} from 'react-native';
 import {TodoList} from '../components/todo-list';
-import {Counter} from '../components/counter';
 import {Button, Dialog, FAB} from 'react-native-paper';
 import {useEffect, useState} from 'react';
 import {Todo} from '../components/todo-item';
@@ -43,7 +42,6 @@ export const TodoListScreen = () => {
   return (
     <View style={styles.container}>
       <TodoList items={items} onClickItem={setDeleteItem} />
-      <Counter />
       <Dialog
         onDismiss={() => setDeleteItem(undefined)}
         visible={deleteItem !== undefined}>
