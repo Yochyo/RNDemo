@@ -1,8 +1,18 @@
-import React, {PropsWithChildren, useState} from 'react';
+import React, {PropsWithChildren, useEffect, useState} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import {MyAsyncStorage} from '../async-storage';
 
 export const Counter = (props: PropsWithChildren<{}>) => {
   let [count, setCount] = useState(0);
+
+  useEffect(() => {
+    MyAsyncStorage.getNumber('counter', 0).then(setCount);
+  }, []);
+
+  useEffect(() => {
+    MyAsyncStorage.setNumber('counter', count);
+  }, [count]);
+
   return (
     <View style={styles.container}>
       <View style={styles.button}>
