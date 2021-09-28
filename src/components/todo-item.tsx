@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export interface Todo {
   title: string;
@@ -12,9 +12,18 @@ export const TodoItem = (
   }>,
 ) => {
   return (
-    <View>
-      <Text>{props.todoItem.title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{props.todoItem.title}</Text>
       <Text>{props.todoItem.description}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 8,
+  },
+  title: {
+    marginBottom: 4,
+  },
+});
