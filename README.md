@@ -1,3 +1,3 @@
-# Touchable Komponenten
-- Die Todo Komponente wird klickbar
-<img src="./screenshots/Screenshot_1632854528.png" height="300" margin="20" alt="screenshot">
+# Flatlist
+- Todo Komponenten werden nun in einer Flatlist gerendert
+<img src="./screenshots/Screenshot_1632854856.png" height="300" margin="20" alt="screenshot">
