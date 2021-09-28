@@ -4,6 +4,7 @@ import {Todo} from './src/components/todo-item';
 import {Counter} from './src/components/counter';
 import {TodoList} from './src/components/todo-list';
 import {MyAsyncStorage} from './src/async-storage';
+import {TodoItemPost} from './src/components/todo-item-post';
 
 const App = () => {
   let [items, setItems] = useState<Todo[]>([]);
@@ -26,8 +27,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <TodoList items={items} />
-      <Counter />
+      <TodoItemPost onSave={(title, description) => {}} />
     </View>
   );
 };
